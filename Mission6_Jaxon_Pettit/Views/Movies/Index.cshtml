@@ -1,0 +1,56 @@
+@model IEnumerable<Mission6_Jaxon_Pettit.Models.Movie>
+
+    @{
+    ViewData["Title"] = "Movie List";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+    <h1 class="fw-bold mb-1">Movie List</h1>
+    <p class="text-muted mb-0">All movies currently stored in SQLite.</p>
+    </div>
+    <a class="btn btn-dark" asp-action="Add">+ Add Movie</a>
+    </div>
+
+    <div class="bg-white border rounded-4 shadow-sm overflow-hidden">
+    <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+    <thead class="table-light">
+    <tr>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th>Rating</th>
+    <th>Edited</th>
+    <th>Lent To</th>
+    <th>Notes</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var m in Model)
+{
+    <tr>
+        <td class="fw-semibold">@m.Title</td>
+        <td><span class="badge text-bg-secondary">@m.Category</span></td>
+        <td>@m.Year</td>
+        <td>@m.Director</td>
+        <td>@(string.IsNullOrWhiteSpace(m.Rating) ? "None" : m.Rating)</td>
+        <td>
+        @if (m.Edited)
+    {
+        <span class="badge text-bg-warning">Yes</span>
+    }
+    else
+    {
+        <span class="badge text-bg-success">No</span>
+    }
+    </td>
+        <td>@(string.IsNullOrWhiteSpace(m.LentTo) ? "—" : m.LentTo)</td>
+        <td>@(string.IsNullOrWhiteSpace(m.Notes) ? "—" : m.Notes)</td>
+        </tr>
+}
+</tbody>
+    </table>
+    </div>
+    </div>
