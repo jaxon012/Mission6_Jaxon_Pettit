@@ -212,3 +212,4 @@
 /Users/jaxon/RiderProjects/Mission6_Jaxon_Pettit/Mission6_Jaxon_Pettit/obj/Debug/net10.0/Mission6_Jaxon_Pettit.pdb
 /Users/jaxon/RiderProjects/Mission6_Jaxon_Pettit/Mission6_Jaxon_Pettit/obj/Debug/net10.0/Mission6_Jaxon_Pettit.genruntimeconfig.cache
 /Users/jaxon/RiderProjects/Mission6_Jaxon_Pettit/Mission6_Jaxon_Pettit/obj/Debug/net10.0/ref/Mission6_Jaxon_Pettit.dll
+/Users/jaxon/RiderProjects/Mission6_Jaxon_Pettit/Mission6_Jaxon_Pettit/obj/Debug/net10.0/Mission6_Jaxon_Pettit.sourcelink.json

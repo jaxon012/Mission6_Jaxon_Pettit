@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission6_Jaxon_Pettit.Models;
 
@@ -7,29 +8,32 @@ public class Movie
     [Key]
     public int MovieId { get; set; }
 
+    // Foreign Key
     [Required(ErrorMessage = "Category is required.")]
-    public string Category { get; set; } = string.Empty;
+    public int CategoryId { get; set; }
+
+    [ForeignKey("CategoryId")]
+    public Category? Category { get; set; }
 
     [Required(ErrorMessage = "Title is required.")]
     public string Title { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Year is required.")]
-    [Range(1888, 2100, ErrorMessage = "Year must be a valid year.")]
+    [Range(1888, 2100, ErrorMessage = "Year must be 1888 or later.")]
     public int Year { get; set; }
 
-    [Required(ErrorMessage = "Director is required.")]
-    public string Director { get; set; } = string.Empty;
+    public string? Director { get; set; }
 
-    // Not required; must allow "None"
-    public string? Rating { get; set; } = "None";
+    public string? Rating { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Edited is required.")]
     public bool Edited { get; set; }
 
-    // Not required
     public string? LentTo { get; set; }
 
-    // Not required; max 25 chars
+    [Required(ErrorMessage = "CopiedToPlex is required.")]
+    public bool CopiedToPlex { get; set; }
+
     [StringLength(25, ErrorMessage = "Notes must be 25 characters or less.")]
     public string? Notes { get; set; }
 }

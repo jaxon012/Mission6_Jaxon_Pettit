@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission6_Jaxon_Pettit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+548e133807bac74b67520b0683c0e1fb77f9f870")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission6_Jaxon_Pettit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission6_Jaxon_Pettit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
