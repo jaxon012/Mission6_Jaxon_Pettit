@@ -1,7 +1,7 @@
 @model Mission6_Jaxon_Pettit.Models.Movie
 
 @{
-    ViewData["Title"] = "Add Movie";
+    ViewData["Title"] = "Edit Movie";
 }
 
 <div class="container py-4">
@@ -10,49 +10,41 @@
 
             <div class="card shadow-sm rounded-4">
                 <div class="card-body p-4 p-md-5">
-                    <h1 class="h3 fw-bold mb-1">Add a Movie</h1>
-                    <p class="text-muted mb-4">
-                        Enter movie details and submit to save it to the database.
-                    </p>
+                    <h1 class="h3 fw-bold mb-1">Edit Movie</h1>
+                    <p class="text-muted mb-4">Update the details and save.</p>
 
-                    <form asp-controller="Movies" asp-action="Add" method="post">
+                    <form asp-controller="Movies" asp-action="Edit" asp-route-id="@Model.MovieId" method="post">
                         @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="MovieId" />
 
                         <div class="row g-3">
 
-                            <!-- Title -->
                             <div class="col-md-8">
                                 <label asp-for="Title" class="form-label"></label>
                                 <input asp-for="Title" class="form-control" />
                                 <span asp-validation-for="Title" class="text-danger"></span>
                             </div>
 
-                            <!-- Year -->
                             <div class="col-md-4">
                                 <label asp-for="Year" class="form-label"></label>
                                 <input asp-for="Year" class="form-control" />
                                 <span asp-validation-for="Year" class="text-danger"></span>
                             </div>
 
-                            <!-- Category (NEW dropdown using CategoryId) -->
                             <div class="col-md-6">
                                 <label asp-for="CategoryId" class="form-label">Category</label>
-                                <select asp-for="CategoryId"
-                                        class="form-select"
-                                        asp-items="ViewBag.Categories">
+                                <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories">
                                     <option value="">Select a category...</option>
                                 </select>
                                 <span asp-validation-for="CategoryId" class="text-danger"></span>
                             </div>
 
-                            <!-- Director -->
                             <div class="col-md-6">
                                 <label asp-for="Director" class="form-label"></label>
                                 <input asp-for="Director" class="form-control" />
                                 <span asp-validation-for="Director" class="text-danger"></span>
                             </div>
 
-                            <!-- Rating -->
                             <div class="col-md-4">
                                 <label asp-for="Rating" class="form-label"></label>
                                 <select asp-for="Rating" class="form-select">
@@ -65,7 +57,6 @@
                                 <span asp-validation-for="Rating" class="text-danger"></span>
                             </div>
 
-                            <!-- Edited -->
                             <div class="col-md-4">
                                 <label asp-for="Edited" class="form-label">Edited?</label>
                                 <select asp-for="Edited" class="form-select">
@@ -75,7 +66,6 @@
                                 <span asp-validation-for="Edited" class="text-danger"></span>
                             </div>
 
-                            <!-- CopiedToPlex (NEW required field) -->
                             <div class="col-md-4">
                                 <label asp-for="CopiedToPlex" class="form-label">Copied To Plex?</label>
                                 <select asp-for="CopiedToPlex" class="form-select">
@@ -85,14 +75,12 @@
                                 <span asp-validation-for="CopiedToPlex" class="text-danger"></span>
                             </div>
 
-                            <!-- LentTo -->
                             <div class="col-md-6">
                                 <label asp-for="LentTo" class="form-label"></label>
                                 <input asp-for="LentTo" class="form-control" />
                                 <span asp-validation-for="LentTo" class="text-danger"></span>
                             </div>
 
-                            <!-- Notes -->
                             <div class="col-md-6">
                                 <label asp-for="Notes" class="form-label"></label>
                                 <input asp-for="Notes" class="form-control" maxlength="25" />
@@ -103,14 +91,8 @@
                         </div>
 
                         <div class="d-flex gap-2 mt-4">
-                            <button type="submit" class="btn btn-dark btn-lg">
-                                Save Movie
-                            </button>
-                            <a class="btn btn-outline-secondary btn-lg"
-                               asp-controller="Movies"
-                               asp-action="Index">
-                                Cancel
-                            </a>
+                            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+                            <a class="btn btn-outline-secondary btn-lg" asp-controller="Movies" asp-action="Index">Cancel</a>
                         </div>
 
                     </form>
